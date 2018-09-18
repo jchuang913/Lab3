@@ -25,7 +25,7 @@ public class WebScraper {
     public static int countWords(String text) {
         int wordCount = 0;
         Scanner textScanner = new Scanner(text);
-        textScanner.useDelimiter("[ ,!?.]+");
+        textScanner.useDelimiter("[ \n]+");
         while (textScanner.hasNext()) {
             wordCount++;
             textScanner.next();
@@ -36,7 +36,7 @@ public class WebScraper {
     public static int countAWord(String text, String word) {
         int count = 0;
         Scanner textScanner = new Scanner(text);
-        textScanner.useDelimiter("[ ,!?.]+");
+        textScanner.useDelimiter("[ ,!?.\n]+");
         while (textScanner.hasNext()) {
             if (textScanner.next().toLowerCase().equals(word.toLowerCase())) {
                 count++;
@@ -48,7 +48,7 @@ public class WebScraper {
     public static int countUniqueWords(String text) {
         int count = 0;
         Scanner textScanner = new Scanner(text);
-        textScanner.useDelimiter("[ ,!?.]+");
+        textScanner.useDelimiter("[ ,!?.\n]+");
         ArrayList<String> words = new ArrayList<>();
         String word;
         while (textScanner.hasNext()) {
